@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAZE — 100 Levels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">THE ULTIMATE LABYRINTH</p>
+        <h1>MAZE<span>.</span></h1>
+        <p class="subtitle">100 levels. One way out.</p>
+      </div>
+      <div class="timer-card">
+        <span>YOUR TIME</span>
+        <strong id="timer">00:00</strong>
+      </div>
+    </header>
+
+    <section class="controls panel">
+      <label for="levelSelect">CHOOSE LEVEL</label>
+      <select id="levelSelect"></select>
+      <button id="goLevel" class="button secondary">Go</button>
+      <button id="newMaze" class="button primary">New Maze</button>
+      <button id="restart" class="button secondary">Restart</button>
+    </section>
+
+    <section class="game-layout">
+      <div class="panel board-panel">
+        <div class="board-info">
+          <span><i class="dot"></i><span id="status">Ready to play</span></span>
+          <span class="legend">
+            <i class="player-dot"></i> You
+            <i class="exit-dot"></i> Exit
+          </span>
+        </div>
+
+        <div class="maze-wrap">
+          <canvas id="maze" aria-label="Maze game board"></canvas>
+          <div id="winScreen" class="win-screen hidden">
+            <div class="win-card">
+              <p class="eyebrow">LEVEL COMPLETED</p>
+              <h2 id="winTitle">You escaped!</h2>
+              <p id="winMessage">Great work.</p>
+              <button id="nextLevel" class="button primary">
+                Next Level
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="hint">
+          Keyboard: Arrow keys or W, A, S, D.
+          On mobile: use the direction buttons.
+        </p>
+      </div>
+
+      <aside class="panel sidebar">
+        <p class="eyebrow">YOUR PROGRESS</p>
+
+        <div class="stat">
+          <span>Current level</span>
+          <strong id="currentLevel">1 / 100</strong>
+        </div>
+        <div class="stat">
+          <span>Difficulty</span>
+          <strong id="difficulty">Easy</strong>
+        </div>
+        <div class="stat">
+          <span>Maze size</span>
+          <strong id="mazeSize">9 × 9</strong>
+        </div>
+        <div class="stat">
+          <span>Moves</span>
+          <strong id="moves">0</strong>
+        </div>
+        <div class="stat">
+          <span>Levels cleared</span>
+          <strong id="cleared">0 / 100</strong>
+        </div>
+
+        <div class="progress-heading">
+          <span>OVERALL PROGRESS</span>
+          <span id="progressText">0%</span>
+        </div>
+        <div class="progress-track">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <p class="eyebrow ladder-heading">DIFFICULTY LADDER</p>
+        <div id="ladder" class="ladder">
+          <div class="ladder-item active">01–20 <span>Easy</span></div>
+          <div class="ladder-item">21–40 <span>Normal</span></div>
+          <div class="ladder-item">41–60 <span>Hard</span></div>
+          <div class="ladder-item">61–80 <span>Expert</span></div>
+          <div class="ladder-item">81–99 <span>Nightmare</span></div>
+          <div class="ladder-item">100 <span>Impossible</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="mobile-controls">
+      <button data-move="up" aria-label="Move up">▲</button>
+      <div class="direction-row">
+        <button data-move="left" aria-label="Move left">◀</button>
+        <button data-move="down" aria-label="Move down">▼</button>
+        <button data-move="right" aria-label="Move right">▶</button>
+      </div>
+    </section>
+
+    <footer>MAZE / 100 LEVELS — CAN YOU ESCAPE THEM ALL?</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
